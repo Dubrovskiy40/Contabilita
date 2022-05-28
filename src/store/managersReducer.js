@@ -1,6 +1,5 @@
 import {ADD_MANAGER, GET_MANAGERS, UPDATE_MANAGER} from "./types/managersTypes";
 
-
 const initialState = [];
 
 const managersReducer = (state = initialState, { type, payload }) => {

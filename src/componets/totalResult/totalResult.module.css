@@ -1,3 +1,14 @@
 .totalResult {
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    top: 294px;
+    left: 198px;
+    position: absolute;
+}
 
+.title_win {
+    color: red;
 }

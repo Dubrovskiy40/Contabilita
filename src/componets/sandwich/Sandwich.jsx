@@ -3,38 +3,34 @@ import style from './sandwich.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import ManagerCard from "../managerCard/ManagerCard";
 import {updateManager} from "../../actions/managersAction";
+import TotalResult from "../totalResult/TotalResult";
 
 const Sandwich = () => {
     const managers = useSelector((state) => state.managers);
-    console.log('Sandwich managers redux(state):',managers)
+    const auth = useSelector((state) => state.auth);
     const totalCount = managers.reduce((acc, manager) => {
         return acc += Number(manager.managerVKSP);
-    }, 0);
+    }, 0).toFixed(2);
     const dispatch = useDispatch();
-
-    // const infoCount = document.querySelector('.infoCount')
-    // console.log(infoCount.offsetLeft())
-    // console.log(infoCount.offsetTop())
 
     let isDragging = false;
 
     const handleMouseDown = (event) => {
+
         event.preventDefault();
 
         let pageBlock = event.target.closest('.sandwichBlock');
         let dragElement = event.target.closest('.draggable');
-        let dropElement = event.target.closest('.droppable');
         let pageBlockLeft = pageBlock.getBoundingClientRect().left;
         let pageBlockTop = pageBlock.getBoundingClientRect().top;
-        let infoElement = event.target.closest('.infoCount');
 
         if (!dragElement) return;
 
-        dragElement.ondragstart = function() {
+        dragElement.ondragstart = function () {
             return false;
         };
 
-        let coords, shiftX, shiftY;
+        let shiftX, shiftY;
 
         startDrag(dragElement, event.clientX, event.clientY);
 
@@ -47,7 +43,8 @@ const Sandwich = () => {
         }
 
         function startDrag(element, clientX, clientY) {
-            if(isDragging) {
+
+            if (isDragging) {
                 return;
             }
 
@@ -65,7 +62,7 @@ const Sandwich = () => {
         }
 
         function finishDrag() {
-            if(!isDragging) {
+            if (!isDragging) {
                 return;
             }
 
@@ -78,15 +75,10 @@ const Sandwich = () => {
             dragElement.style.left = dragElement.offsetLeft - pageBlockLeft + 'px';
 
             let dragElementID = dragElement.getAttribute('id');
-            console.log('sandwich DnD: top left',dragElement.offsetTop, dragElement.offsetLeft)
+
             dispatch(updateManager({id: dragElementID, top: dragElement.offsetTop, left: dragElement.offsetLeft}))
 
-            pageBlock.style.position = 'relative';
             dragElement.style.position = 'absolute';
-
-            // infoElement.style.top = infoElement.offsetTop + 'px';
-            // infoElement.style.left = infoElement.offsetLeft + 'px';
-
             pageBlock.removeEventListener('mousemove', onMouseMove);
             dragElement.removeEventListener('mouseup', onMouseUp);
         }
@@ -96,15 +88,25 @@ const Sandwich = () => {
             let newX = clientX - shiftX;
             let newY = clientY - shiftY;
 
+            // ограничим newX, newY размерами блока с картинкой
+            if (newX < pageBlock.offsetLeft ) newX = pageBlock.offsetLeft;
+            if (newY < pageBlock.offsetTop ) newY = pageBlock.offsetTop;
+
+            if (newX > pageBlock.offsetLeft + pageBlock.offsetWidth - dragElement.offsetWidth) {
+                newX = pageBlock.offsetLeft + pageBlock.offsetWidth - dragElement.offsetWidth;
+            }
+            if (newY > pageBlock.offsetTop + pageBlock.offsetHeight - dragElement.offsetHeight) {
+                newY = pageBlock.offsetTop + pageBlock.offsetHeight - dragElement.offsetHeight;
+            }
+
             dragElement.style.left = newX + 'px';
             dragElement.style.top = newY + 'px';
         }
     }
 
     return (
-        <div className={`sandwichBlock ${style.sandwich}`} onMouseDown={handleMouseDown}>
-            <div className={style.sandwich__before}>
-                {managers?.map(manager => {
+        <div className={`sandwichBlock ${style.sandwich}`} onMouseDown={auth ? handleMouseDown : null}>
+            {managers?.map(manager => {
                     return (
                         <ManagerCard
                             key={manager.id}
@@ -115,12 +117,10 @@ const Sandwich = () => {
                             top={manager.top}
                             left={manager.left}
                         />
-                        )
-                    }
-                )}
-            </div>
-            <div className={`infoCount ${style.sandwich__count}`}>{totalCount <= 0 ? '¯\\_(ツ)_/¯' : `${totalCount} ВКСП`}</div>
-            <div className={`droppable ${style.sandwich__after}`}></div>
+                    )
+                }
+            )}
+            <TotalResult totalCount={totalCount} />
         </div>
     )
 };

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Contabilita/static/css/main.fd92b490.css",
+    "main.js": "/Contabilita/static/js/main.6337232a.js",
+    "static/media/bgi.jpeg": "/Contabilita/static/media/bgi.a4cfe81d6b5b2ec6c9fb.jpeg",
+    "static/media/managerCardBgi.png": "/Contabilita/static/media/managerCardBgi.e468ea42d5a2c3a0c20e.png",
+    "index.html": "/Contabilita/index.html",
+    "main.fd92b490.css.map": "/Contabilita/static/css/main.fd92b490.css.map",
+    "main.6337232a.js.map": "/Contabilita/static/js/main.6337232a.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fd92b490.css",
+    "static/js/main.6337232a.js"
+  ]
+}

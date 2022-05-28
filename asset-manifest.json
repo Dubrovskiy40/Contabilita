@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/Contabilita/static/css/main.fd92b490.css",
-    "main.js": "/Contabilita/static/js/main.6337232a.js",
+    "main.css": "/Contabilita/static/css/main.35e7ae5b.css",
+    "main.js": "/Contabilita/static/js/main.ccfcd00d.js",
     "static/media/bgi.jpeg": "/Contabilita/static/media/bgi.a4cfe81d6b5b2ec6c9fb.jpeg",
     "static/media/managerCardBgi.png": "/Contabilita/static/media/managerCardBgi.e468ea42d5a2c3a0c20e.png",
     "index.html": "/Contabilita/index.html",
-    "main.fd92b490.css.map": "/Contabilita/static/css/main.fd92b490.css.map",
-    "main.6337232a.js.map": "/Contabilita/static/js/main.6337232a.js.map"
+    "main.35e7ae5b.css.map": "/Contabilita/static/css/main.35e7ae5b.css.map",
+    "main.ccfcd00d.js.map": "/Contabilita/static/js/main.ccfcd00d.js.map"
   },
   "entrypoints": [
-    "static/css/main.fd92b490.css",
-    "static/js/main.6337232a.js"
+    "static/css/main.35e7ae5b.css",
+    "static/js/main.ccfcd00d.js"
   ]
 }

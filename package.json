@@ -2,6 +2,7 @@
   "name": "contabilita-app",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://dubrovskiy40.github.io/Contabilita/",
   "dependencies": {
     "@emotion/react": "^11.9.0",
     "@emotion/styled": "^11.8.1",
@@ -46,7 +47,6 @@
       "last 1 safari version"
     ]
   },
-  "homepage": "https://dubrovskiy40.github.io/Contabilita/",
   "devDependencies": {
     "gh-pages": "^4.0.0"
   }

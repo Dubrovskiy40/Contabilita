@@ -103,7 +103,7 @@ const Sandwich = () => {
 
     return (
         <div className={`sandwichBlock ${style.sandwich}`} onMouseDown={handleMouseDown}>
-            {/*<div className={style.sandwich__before}>*/}
+            <div className={style.sandwich__before}>
                 {managers?.map(manager => {
                     return (
                         <ManagerCard
@@ -118,9 +118,9 @@ const Sandwich = () => {
                         )
                     }
                 )}
-            {/*</div>*/}
-            {/*<div className={`infoCount ${style.sandwich__count}`}>{totalCount <= 0 ? '¯\\_(ツ)_/¯' : `${totalCount} ВКСП`}</div>*/}
-            {/*<div className={`droppable ${style.sandwich__after}`}></div>*/}
+            </div>
+            <div className={`infoCount ${style.sandwich__count}`}>{totalCount <= 0 ? '¯\\_(ツ)_/¯' : `${totalCount} ВКСП`}</div>
+            <div className={`droppable ${style.sandwich__after}`}></div>
         </div>
     )
 };

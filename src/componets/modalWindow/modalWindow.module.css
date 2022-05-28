@@ -1,0 +1,18 @@
+.modal__imgPreview_wrap {
+
+}
+
+.modal__imgPreview {
+
+}
+
+.modal__previewText {
+
+}
+
+
+
+.form {
+    display: flex;
+    flex-direction: column;
+}

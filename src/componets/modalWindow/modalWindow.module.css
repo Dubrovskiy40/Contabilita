@@ -1,16 +1,14 @@
 .modal__imgPreview_wrap {
-
+    max-width: 100%;
 }
 
 .modal__imgPreview {
-
+    max-width: 100%;
 }
 
 .modal__previewText {
-
+    font-size: 14px;
 }
-
-
 
 .form {
     display: flex;

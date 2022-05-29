@@ -16,7 +16,6 @@ const Sandwich = () => {
     let isDragging = false;
 
     const handleMouseDown = (event) => {
-
         event.preventDefault();
 
         let pageBlock = event.target.closest('.sandwichBlock');
@@ -68,7 +67,6 @@ const Sandwich = () => {
 
             isDragging = false;
 
-            // dragElement.style.top = parseInt(dragElement.style.top) + pageYOffset + 'px';
             dragElement.style.top = dragElement.offsetTop - pageBlockTop + 'px';
             dragElement.style.right = parseInt(dragElement.style.right) + 'px';
             dragElement.style.bottom = parseInt(dragElement.style.bottom) + 'px';
@@ -89,8 +87,8 @@ const Sandwich = () => {
             let newY = clientY - shiftY;
 
             // ограничим newX, newY размерами блока с картинкой
-            if (newX < pageBlock.offsetLeft ) newX = pageBlock.offsetLeft;
-            if (newY < pageBlock.offsetTop ) newY = pageBlock.offsetTop;
+            if (newX < pageBlock.offsetLeft) newX = pageBlock.offsetLeft;
+            if (newY < pageBlock.offsetTop) newY = pageBlock.offsetTop;
 
             if (newX > pageBlock.offsetLeft + pageBlock.offsetWidth - dragElement.offsetWidth) {
                 newX = pageBlock.offsetLeft + pageBlock.offsetWidth - dragElement.offsetWidth;
@@ -116,6 +114,7 @@ const Sandwich = () => {
                             managerVKSP={manager.managerVKSP}
                             top={manager.top}
                             left={manager.left}
+                            auth={auth}
                         />
                     )
                 }

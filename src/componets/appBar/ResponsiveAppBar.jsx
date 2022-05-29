@@ -69,8 +69,8 @@ const ResponsiveAppBar = ({ openModalWindow }) => {
                                 value={person}
                                 onChange={handleChange}
                             >
-                                <FormControlLabel value="admin" control={<Radio color="default" />} label="Admin" />
-                                <FormControlLabel value="user" control={<Radio color="default" />} label="User" />
+                                <FormControlLabel value="admin" control={<Radio color="default" sx={{ my: 2, color: 'white' }} />} label="Admin" />
+                                <FormControlLabel value="user" control={<Radio color="default" sx={{ my: 2, color: 'white' }} />} label="User" />
                             </RadioGroup>
                         </FormControl>
                     </Box>

@@ -105,9 +105,9 @@ const ModalWindow = ({ openModalWindow, setOpenModalWindow }) => {
                         Кого готовимся намазывать? :-)
                     </Typography>
                     <form className={style.form} onSubmit={handleSubmitForm}>
-                        <TextField id="standard-basic" type="file" onChange={handleImageChange} name="managerIMG" label="Фото" variant="standard" />
-                        <TextField id="standard-basic" name="manager" label="Имя" variant="standard" />
-                        <TextField id="standard-basic" name="managerVKSP" label="ВКСП" variant="standard" />
+                        <TextField id="standard-basic" type="file" onChange={handleImageChange} name="managerIMG" label="Фото" variant="standard" required />
+                        <TextField id="standard-basic" name="manager" label="Имя" variant="standard" required />
+                        <TextField id="standard-basic" name="managerVKSP" label="ВКСП" variant="standard" required />
                         <Box sx={{marginTop: '15px', display: 'flex', justifyContent: 'center'}}>
                             <Button type="submit" variant="contained">Создать</Button>
                         </Box>

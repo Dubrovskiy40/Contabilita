@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import style from './sandwich.module.css';
 import {useDispatch, useSelector} from "react-redux";
 import ManagerCard from "../managerCard/ManagerCard";
@@ -88,14 +88,14 @@ const Sandwich = () => {
 
             // ограничим newX, newY размерами блока с картинкой
             if (newX < pageBlock.offsetLeft) newX = pageBlock.offsetLeft;
-            if (newY < pageBlock.offsetTop) newY = pageBlock.offsetTop;
+            // if (newY < pageBlock.offsetTop) newY = pageBlock.offsetTop;
 
             if (newX > pageBlock.offsetLeft + pageBlock.offsetWidth - dragElement.offsetWidth) {
                 newX = pageBlock.offsetLeft + pageBlock.offsetWidth - dragElement.offsetWidth;
             }
-            if (newY > pageBlock.offsetTop + pageBlock.offsetHeight - dragElement.offsetHeight) {
-                newY = pageBlock.offsetTop + pageBlock.offsetHeight - dragElement.offsetHeight;
-            }
+            // if (newY > pageBlock.offsetTop + pageBlock.offsetHeight - dragElement.offsetHeight) {
+            //     newY = pageBlock.offsetTop + pageBlock.offsetHeight - dragElement.offsetHeight;
+            // }
 
             dragElement.style.left = newX + 'px';
             dragElement.style.top = newY + 'px';
